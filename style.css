@@ -1,0 +1,90 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  margin-top: 100px;
+  position: relative;
+}
+
+.text-center {
+  margin-top: 20px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.mt-3 {
+  margin-top: 20px;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.form-floating {
+  position: relative;
+}
+
+.btn-primary {
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-weight: bold;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-check-label {
+  margin-bottom: 0; /* Menghilangkan margin bawah pada label */
+}
+
+a {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #343a40;
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin-top: 50px;
+  }
+  
+  .col-md-6 {
+    padding: 0 15px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  .form-control {
+    font-size: 14px;
+  }
+  
+  .btn-primary {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .mt-3 {
+    margin-top: 10px;
+  }
+}

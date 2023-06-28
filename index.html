@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Include Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .password-container {
+      position: relative;
+    }
+    
+    .password-toggle {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 mt-5">
+        <h2 class="text-center">Login</h2>
+        <form id="loginForm" onsubmit="validateForm(event)">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating password-container">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            <i class="fas fa-eye password-toggle" id="passwordToggle" onclick="togglePasswordVisibility()"></i>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1"> Remember Me</label>
+            </div>
+          </div>
+          <a href="#">Forgot Password</a>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+        <p class="text-center mt-3">Don't have an account? <a href="register.html">Register</a></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); 
+      
+      
+      var emailInput = document.getElementById('floatingInput');
+      var passwordInput = document.getElementById('floatingPassword');
+      
+      // Validate email format
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(emailInput.value)) {
+        alert('Invalid email address');
+        return;
+      }
+      
+      if (passwordInput.value.length < 8) {
+        alert('Password must be at least 8 characters long');
+        return;
+      }
+      
+      document.getElementById('loginForm').submit();
+    }
+    
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById('floatingPassword');
+      var passwordToggle = document.getElementById('passwordToggle');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordToggle.classList.remove('fa-eye');
+        passwordToggle.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        passwordToggle.classList.remove('fa-eye-slash');
+        passwordToggle.classList.add('fa-eye');
+      }
+    }
+  </script>
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>
